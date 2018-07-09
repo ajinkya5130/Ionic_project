@@ -23,7 +23,7 @@
 </ion-header>
 
 <ion-content padding>
- <ion-list [reorder] = "reorderFunEnable">
+ <ion-list [reorder] = "reorderFunEnable" (ionItemReorder) = "ionItemReordered($event)">
    <!-- sliding method start -->
    <ion-item-sliding *ngFor="let items of todos1">
    <ion-item >{{items}}</ion-item>
