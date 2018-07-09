@@ -8,8 +8,14 @@ import { NavController,AlertController } from 'ionic-angular';
 export class HomePage {
 
  public todos1 = [];
+ public reorderFunEnable = false;
 
   constructor(public alertCtrl: AlertController, public navCtrl: NavController) {
+
+  }
+
+  reorderFunction(){
+    this.reorderFunEnable = !this.reorderFunEnable;
 
   }
 

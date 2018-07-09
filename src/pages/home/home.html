@@ -4,6 +4,17 @@
       To-Do List
     </ion-title>
     <ion-buttons end>
+      
+        <button color ="secondary" ion-button *ngIf="!reorderFunEnable" (click) = "reorderFunction()"  >
+             <ion-icon name="reorder"></ion-icon>
+
+        </button>
+
+        <button color ="secondary" ion-button (click) = "reorderFunction()" >
+          Done
+        </button>
+
+        
         <button color ="dark" ion-button icon-only (click)="openAlert()">
           <ion-icon name="add"></ion-icon>
         </button>
