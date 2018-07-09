@@ -6,11 +6,11 @@
     <ion-buttons end>
       
         <button color ="secondary" ion-button *ngIf="!reorderFunEnable" (click) = "reorderFunction()"  >
-             <ion-icon name="reorder"></ion-icon>
-
+          Edit  
+         
         </button>
 
-        <button color ="secondary" ion-button *ngIf="!reorderFunEnable" (click) = "reorderFunction()" >
+        <button color ="secondary" ion-button *ngIf="reorderFunEnable" (click) = "reorderFunction()" >
           Done
         </button>
 
