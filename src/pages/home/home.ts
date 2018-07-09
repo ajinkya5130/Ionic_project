@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController,AlertController } from 'ionic-angular';
+import { TodoArchivePage } from '../todo-archive/todo-archive';
 
 @Component({
   selector: 'page-home',
@@ -18,6 +19,11 @@ export class HomePage {
     this.reorderFunEnable = !this.reorderFunEnable;
 
   }
+
+  gotoArchive(){
+    this.navCtrl.push(TodoArchivePage);
+  }
+
 
   openAlert(){
 
