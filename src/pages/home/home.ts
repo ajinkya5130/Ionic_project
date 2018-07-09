@@ -22,6 +22,10 @@ export class HomePage {
         {
           type:"text",
           name: "addtodoInput"
+        },
+        {
+          type:"text",
+          name: "addtodoInput1"
         }
       ],
       buttons: [
@@ -31,9 +35,10 @@ export class HomePage {
         {
         text: "Save",
         handler: (inputdata)=>{
-          let todoText;
+          let todoText,todoText1;
           todoText = inputdata.addtodoInput;
-          this.todos1.push(todoText);
+          todoText1 = inputdata.addtodoInput1;
+          this.todos1.push(todoText+" "+todoText1);
         }
       },
     ]
