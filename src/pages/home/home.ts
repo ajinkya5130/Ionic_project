@@ -22,6 +22,7 @@ export class HomePage {
         {
           type:"text",
           name: "addtodoInput"
+          
         },
         {
           type:"text",

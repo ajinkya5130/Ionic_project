@@ -4,7 +4,7 @@
       To-Do List
     </ion-title>
     <ion-buttons end>
-        <button color ="danger" ion-button icon-only (click)="openAlert()">
+        <button color ="dark" ion-button icon-only (click)="openAlert()">
           <ion-icon name="add"></ion-icon>
         </button>
       </ion-buttons>
@@ -12,7 +12,7 @@
 </ion-header>
 
 <ion-content padding>
- <ion-list>
+ <ion-list [reorder] = "reorderFunEnable">
    <!-- sliding method start -->
    <ion-item-sliding *ngFor="let items of todos1">
    <ion-item >{{items}}</ion-item>
