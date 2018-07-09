@@ -1,14 +1,33 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      To-Do List
     </ion-title>
+    <ion-buttons end>
+        <button ion-button icon-only (click)="openAlert()">
+          <ion-icon name="add"></ion-icon>
+        </button>
+      </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+ <ion-list>
+   <!-- sliding method start -->
+   <ion-item-sliding *ngFor="let items of todos1">
+   <ion-item >{{items}}</ion-item>
+   <ion-item-options side ="right">
+      <button  ion-button icon-only>
+          <ion-icon name="trash"></ion-icon>
+        </button> 
+   </ion-item-options>   
+
+   <ion-item-options side ="left">
+      <button  ion-button icon-only>
+          <ion-icon name="home"></ion-icon>
+        </button> 
+   </ion-item-options> 
+  </ion-item-sliding>
+  <!-- sliding method ends -->
+    </ion-list>
 </ion-content>
