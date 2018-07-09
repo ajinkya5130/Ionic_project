@@ -10,7 +10,7 @@
 
         </button>
 
-        <button color ="secondary" ion-button (click) = "reorderFunction()" >
+        <button color ="secondary" ion-button *ngIf="!reorderFunEnable" (click) = "reorderFunction()" >
           Done
         </button>
 
