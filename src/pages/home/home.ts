@@ -13,6 +13,7 @@ export class HomePage {
 
  public todos1 = [];
  public reorderFunEnable = false;
+ public gotoArchivePage = TodoArchivePage;
  
 
   constructor(public alertCtrl: AlertController, public navCtrl: NavController) {
