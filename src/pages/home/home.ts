@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { TodoArchivePage } from '../todo-archive/todo-archive';
 
 import { NavController,AlertController,reorderArray } from 'ionic-angular';
+import { TodoServiceProvider } from '../../providers/todo-service/todo-service';
 
 
 @Component({
@@ -16,8 +17,9 @@ export class HomePage {
  public gotoArchivePage = TodoArchivePage;
  
 
-  constructor(public alertCtrl: AlertController, public navCtrl: NavController) {
+  constructor(private todoservice: TodoServiceProvider,public alertCtrl: AlertController, public navCtrl: NavController) {
 
+    this.todos1 = this.todoservice.gettodos();
   }
 
   reorderFunction(){
@@ -64,7 +66,8 @@ export class HomePage {
           let todoText,todoText1;
           todoText = inputdata.addtodoInput;
           todoText1 = inputdata.addtodoInput1;
-          this.todos1.push(todoText+" "+todoText1);
+          this.todoservice.addtodomethod(todoText+" "+todoText1);
+//          this.todos1.push(todoText+" "+todoText1);
         }
       },
     ]

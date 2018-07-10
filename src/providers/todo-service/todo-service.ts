@@ -10,8 +10,17 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class TodoServiceProvider {
 
+  private todos =[];
   constructor(public http: HttpClient) {
     console.log('Hello TodoServiceProvider Provider');
+  }
+
+  gettodos(){
+    return this.todos;
+  }
+
+  addtodomethod(todotext){
+    this.todos.push(todotext); 
   }
 
 }

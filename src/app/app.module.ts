@@ -8,6 +8,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { TodoArchivePage } from '../pages/todo-archive/todo-archive';
 import { TodoServiceProvider } from '../providers/todo-service/todo-service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { TodoServiceProvider } from '../providers/todo-service/todo-service';
     TodoArchivePage
   ],
   imports: [
-    BrowserModule,
+    BrowserModule,HttpClientModule, 
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
