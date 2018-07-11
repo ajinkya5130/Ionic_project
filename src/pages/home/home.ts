@@ -29,7 +29,7 @@ export class HomePage {
   
 
   archive_method(todoIndex){
-    this.todoservice.archivedtodo(todoIndex);
+    this.todoservice.archivedtodo(todoIndex); 
     
 this.todoservice.presentToast('Todo Archived successfully');
   }
@@ -79,8 +79,11 @@ this.todoservice.presentToast('Todo Archived successfully');
           todoText = inputdata.addtodoInput;
           todoText1 = inputdata.addtodoInput1;
           this.todoservice.addtodomethod(todoText+" "+todoText1);
+          alert.onDidDismiss(()=>{
+
+            this.todoservice.presentToast('Todo added successfully');
+          });
 //          this.todos1.push(todoText+" "+todoText1);
-this.todoservice.presentToast('Todo added successfully');
 
 
 
