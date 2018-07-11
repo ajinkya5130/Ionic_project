@@ -23,6 +23,9 @@ export class TodoServiceProvider {
     this.archivetodos.push(todoTOBEArchived);
   }
 
+  getArchivedTODOs(){
+    return this.archivetodos;
+  }
   gettodos(){
     return this.todos;
   }
