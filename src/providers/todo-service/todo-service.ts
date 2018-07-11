@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ToastController } from 'ionic-angular';
 
 /*
   Generated class for the TodoServiceProvider provider.
@@ -12,7 +13,7 @@ export class TodoServiceProvider {
 
   private todos =[];
   private archivetodos =[];
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient, private toastCtrl: ToastController) {
     console.log('Hello TodoServiceProvider Provider');
   }
 
@@ -22,6 +23,15 @@ export class TodoServiceProvider {
     this.todos.splice(todoIndex,1);
     this.archivetodos.push(todoTOBEArchived);
   }
+
+  presentToast(message) {
+    const toast = this.toastCtrl.create({
+      message: message,
+      duration: 3000
+    });
+    toast.present();
+  }
+
 
   getArchivedTODOs(){
     return this.archivetodos;

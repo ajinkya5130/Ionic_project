@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 import { TodoArchivePage } from '../todo-archive/todo-archive';
 
-import { NavController,AlertController,reorderArray } from 'ionic-angular';
+import { NavController,AlertController,reorderArray,ToastController } from 'ionic-angular';
 import { TodoServiceProvider } from '../../providers/todo-service/todo-service';
 
 
@@ -17,13 +17,21 @@ export class HomePage {
  public gotoArchivePage = TodoArchivePage;
  
 
-  constructor(private todoservice: TodoServiceProvider,public alertCtrl: AlertController, public navCtrl: NavController) {
+  constructor(
+   
+    private todoservice: TodoServiceProvider,
+    public alertCtrl: AlertController,
+    public navCtrl: NavController) {
 
     this.todos1 = this.todoservice.gettodos();
   }
 
+  
+
   archive_method(todoIndex){
     this.todoservice.archivedtodo(todoIndex);
+    
+this.todoservice.presentToast('Todo Archived successfully');
   }
 
   reorderFunction(){
@@ -72,6 +80,10 @@ export class HomePage {
           todoText1 = inputdata.addtodoInput1;
           this.todoservice.addtodomethod(todoText+" "+todoText1);
 //          this.todos1.push(todoText+" "+todoText1);
+this.todoservice.presentToast('Todo added successfully');
+
+
+
         }
       },
     ]
