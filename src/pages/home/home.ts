@@ -22,6 +22,10 @@ export class HomePage {
     this.todos1 = this.todoservice.gettodos();
   }
 
+  archive_method(todoIndex){
+    this.todoservice.archivedtodo(todoIndex);
+  }
+
   reorderFunction(){
     this.reorderFunEnable = !this.reorderFunEnable;
 
