@@ -43,5 +43,10 @@ export class TodoServiceProvider {
   addtodomethod(todotext){
     this.todos.push(todotext); 
   }
+  edittodomethod(todoIndex,todotext){
+
+    this.todos[todoIndex] = todotext;
+
+  }
 
 }
