@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-
 import { TodoArchivePage } from '../todo-archive/todo-archive';
-
 import { NavController,AlertController,reorderArray } from 'ionic-angular';
 import { TodoServiceProvider } from '../../providers/todo-service/todo-service';
 
@@ -53,9 +51,6 @@ export class HomePage {
             this.todoservice.presentToast('Todo edited successfully');
           });
 //          this.todos1.push(todoText+" "+todoText1);
-
-
-
         }
       },
     ]
@@ -120,16 +115,12 @@ this.todoservice.presentToast('Todo Archived successfully');
             this.todoservice.presentToast('Todo added successfully');
           });
 //          this.todos1.push(todoText+" "+todoText1);
-
-
-
         }
       },
     ]
     });
     alert.present();
   }
-
   
 
 }
