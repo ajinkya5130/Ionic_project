@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController,AlertController } from 'ionic-angular';
+
+import { TodoArchivePage } from '../todo-archive/todo-archive';
+
+import { NavController,AlertController,reorderArray } from 'ionic-angular';
+
 
 @Component({
   selector: 'page-home',
@@ -8,10 +12,31 @@ import { NavController,AlertController } from 'ionic-angular';
 export class HomePage {
 
  public todos1 = [];
+ public reorderFunEnable = false;
+ public gotoArchivePage = TodoArchivePage;
+ 
 
   constructor(public alertCtrl: AlertController, public navCtrl: NavController) {
 
   }
+
+  reorderFunction(){
+    this.reorderFunEnable = !this.reorderFunEnable;
+
+  }
+
+  gotoArchive(){
+    this.navCtrl.push(TodoArchivePage);
+  }
+
+
+  ionItemReordered($event){
+    reorderArray(this.todos1,$event);
+
+    
+  }
+
+
 
   openAlert(){
 
@@ -22,6 +47,11 @@ export class HomePage {
         {
           type:"text",
           name: "addtodoInput"
+          
+        },
+        {
+          type:"text",
+          name: "addtodoInput1"
         }
       ],
       buttons: [
@@ -31,9 +61,10 @@ export class HomePage {
         {
         text: "Save",
         handler: (inputdata)=>{
-          let todoText;
+          let todoText,todoText1;
           todoText = inputdata.addtodoInput;
-          this.todos1.push(todoText);
+          todoText1 = inputdata.addtodoInput1;
+          this.todos1.push(todoText+" "+todoText1);
         }
       },
     ]

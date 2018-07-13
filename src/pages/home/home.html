@@ -4,7 +4,18 @@
       To-Do List
     </ion-title>
     <ion-buttons end>
-        <button ion-button icon-only (click)="openAlert()">
+      
+        <button color ="secondary" ion-button *ngIf="!reorderFunEnable" (click) = "reorderFunction()"  >
+          Edit  
+         
+        </button>
+
+        <button color ="secondary" ion-button *ngIf="reorderFunEnable" (click) = "reorderFunction()" >
+          Done
+        </button>
+
+        
+        <button color ="dark" ion-button icon-only (click)="openAlert()">
           <ion-icon name="add"></ion-icon>
         </button>
       </ion-buttons>
@@ -12,7 +23,7 @@
 </ion-header>
 
 <ion-content padding>
- <ion-list>
+ <ion-list [reorder] = "reorderFunEnable" (ionItemReorder) = "ionItemReordered($event)">
    <!-- sliding method start -->
    <ion-item-sliding *ngFor="let items of todos1">
    <ion-item >{{items}}</ion-item>
@@ -30,4 +41,13 @@
   </ion-item-sliding>
   <!-- sliding method ends -->
     </ion-list>
+
+
+    <ion-fab right bottom>
+      <button ion-fab color="dark" [navPush] = "gotoArchivePage"><ion-icon name="archive"></ion-icon></button>
+      
+    </ion-fab>
+
+
+
 </ion-content>
