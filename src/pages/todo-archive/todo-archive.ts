@@ -22,6 +22,7 @@ export class TodoArchivePage {
   }
 
   ionViewDidLoad() {
+    
     this.archivedtodos = this.todoservice.getArchivedTODOs();
     console.log('ionViewDidLoad TodoArchivePage');
   }

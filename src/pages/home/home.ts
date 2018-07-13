@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { TodoArchivePage } from '../todo-archive/todo-archive';
 import { NavController,AlertController,reorderArray } from 'ionic-angular';
 import { TodoServiceProvider } from '../../providers/todo-service/todo-service';
-
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'page-home',
@@ -16,11 +16,12 @@ export class HomePage {
  
 
   constructor(
-   
+    private storage: Storage,
     private todoservice: TodoServiceProvider,
     public alertCtrl: AlertController,
     public navCtrl: NavController) {
 
+     
     this.todos1 = this.todoservice.gettodos();
   }
 
@@ -46,6 +47,7 @@ export class HomePage {
           let todoText;
           todoText = inputdata.addtodoInput;
           this.todoservice.edittodomethod(todoIndex,todoText);
+          
           alert.onDidDismiss(()=>{
 
             this.todoservice.presentToast('Todo edited successfully');
@@ -72,6 +74,7 @@ this.todoservice.presentToast('Todo Archived successfully');
 
   gotoArchive(){
     this.navCtrl.push(TodoArchivePage);
+
   }
 
 
@@ -109,6 +112,12 @@ this.todoservice.presentToast('Todo Archived successfully');
           let todoText,todoText1;
           todoText = inputdata.addtodoInput;
           todoText1 = inputdata.addtodoInput1;
+          this.storage.set('name', todoText);
+
+          this.storage.get('name').then((val) => {
+            console.log('Your name is', val);
+          });
+
           this.todoservice.addtodomethod(todoText+" "+todoText1);
           alert.onDidDismiss(()=>{
 
