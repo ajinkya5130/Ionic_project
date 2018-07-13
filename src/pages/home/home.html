@@ -25,17 +25,17 @@
 <ion-content padding>
  <ion-list [reorder] = "reorderFunEnable" (ionItemReorder) = "ionItemReordered($event)">
    <!-- sliding method start -->
-   <ion-item-sliding *ngFor="let items of todos1">
+   <ion-item-sliding *ngFor="let items of todos1 ; let todoIndex = index">
    <ion-item >{{items}}</ion-item>
    <ion-item-options side ="right">
-      <button color ="danger" ion-button icon-only>
+      <button color ="danger" ion-button icon-only (click) = "archive_method(todoIndex)">
           <ion-icon name="trash"></ion-icon>
         </button> 
    </ion-item-options>   
 
    <ion-item-options side ="left">
-      <button  ion-button icon-only>
-          <ion-icon name="home"></ion-icon>
+      <button  ion-button icon-only (click) = "editTODoAlert(todoIndex)">
+          <ion-icon name="create"></ion-icon>
         </button> 
    </ion-item-options> 
   </ion-item-sliding>
